@@ -1,4 +1,4 @@
-package com.leogsouza.SpringBootVueApplication;
+package com.leogsouza.springbootvue;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
