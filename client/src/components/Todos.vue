@@ -40,9 +40,9 @@
             <strong>{{ remaining }}</strong> {{ remaining | pluralize }} left
           </span>
           <ul class="filters">
-            <li><a href="#/all" @click="setVisibility('all')" : class="{ selected: visibility == 'all' }">All</a></li>
-            <li><a href="#/active" @click="setVisibility('active')" : class="{ selected: visibility == 'active' }">Active</a></li>
-            <li><a href="#/completed" @click="setVisibility('completed')" : class="{ selected: visibility == 'completed' }">Completed</a></li>
+            <li><a href="#/all" @click="setVisibility('all')" :class="{ selected: visibility == 'all' }">All</a></li>
+            <li><a href="#/active" @click="setVisibility('active')" :class="{ selected: visibility == 'active' }">Active</a></li>
+            <li><a href="#/completed" @click="setVisibility('completed')" :class="{ selected: visibility == 'completed' }">Completed</a></li>
           </ul>
           <button class="clear-completed" @click="removeCompleted" v-show="todos.length > remaining">
             Clear completed
@@ -80,9 +80,9 @@ export default {
   }),
   mounted() {
     // inject some startup data
-    this.todos = [{title: 'Study Java', completed: false}, {title: 'Create Microservice in Go', completed: false}, {title: 'Drink Coffee', completed: false}]
+    this.todos = [{id:1, title: 'Study Java', completed: false}, {id:2, title: 'Create Microservice in Go', completed: false}, {id:3, title: 'Drink Coffee', completed: false}]
     // hide the loading message
-    ths.loading = false
+    this.loading = false
   },
 
   // computed properties
@@ -106,7 +106,7 @@ export default {
     userEmail: function () {
       return this.activeUser ? this.activeUser.email : ''
     },
-    inputPlaceHolder: function () {
+    inputPlaceholder: function () {
       return this.activeUser ? this.activeUser.given_name + ', what needs to be done?': 'What needs to be done?'     
     }
   },
@@ -133,7 +133,7 @@ export default {
     },
 
     completeTodo (todo) {
-
+      console.log(todo);
     },
     removeTodo: function (todo) {
       this.todos.splice(this.todos.indexOf(todo), 1)

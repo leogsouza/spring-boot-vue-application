@@ -1,1 +1,3 @@
-export const runtimeCompiler = true;
+module.exports = {
+  runtimeCompiler: true
+};
